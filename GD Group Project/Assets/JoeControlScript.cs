@@ -28,7 +28,7 @@ public class JoeControlScript : NetworkBehaviour,Health
     private Vector3 jumping_velocity;
     float start_jump_velocity = 10;
 
-    private float walking_speed = 2;
+    private float walking_speed = 5;
     private float running_speed = 4;
     float current_speed = 0;
 
@@ -255,10 +255,12 @@ public class JoeControlScript : NetworkBehaviour,Health
     Collider[] allPossiblePickUps = Physics.OverlapSphere(transform.position, 1f);
     foreach (Collider c in allPossiblePickUps)
         {
-            
+           
             PickUP newItem = c.transform.GetComponent<PickUP>();
-          
-            if (newItem  && (newItem.currentState!= PickUP.PickUpItemStates.Held))
+
+            
+            if (newItem && (newItem.currentState != PickUP.PickUpItemStates.Held))
+
             {   if (rightHand == null)
                 {
 
